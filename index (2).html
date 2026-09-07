@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ольхон, сентябрь 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ground:#16110D;
+    --ground-2:#1E1712;
+    --surface:#241C15;
+    --surface-2:#2C231A;
+    --line:#3A2E23;
+    --line-soft:#2B211A;
+    --ink:#F4E8D6;
+    --ink-2:#D9C7AE;
+    --muted:#A08C74;
+    --gold:#E3A63F;
+    --gold-dim:#B7832F;
+    --rust:#C4592C;
+    --water:#5E8C89;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"Golos Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1,h2,h3{margin:0;text-wrap:balance}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(120% 90% at 78% 8%, rgba(227,166,63,.16) 0%, rgba(227,166,63,0) 58%),
+      radial-gradient(90% 70% at 8% 100%, rgba(94,140,137,.16) 0%, rgba(94,140,137,0) 60%),
+      var(--ground);
+  }
+  .hero-inner{padding:64px 24px 0;max-width:var(--maxw);margin:0 auto}
+  .eyebrow{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold);
+    display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;
+  }
+  .eyebrow span.sep{color:var(--line);}
+  .eyebrow span.q{color:var(--muted)}
+  h1{
+    font-family:"Prata",Georgia,serif;
+    font-weight:400;
+    font-size:clamp(52px,11vw,124px);
+    line-height:.92;
+    letter-spacing:-.01em;
+    margin:22px 0 0;
+  }
+  h1 .sub{display:block;font-size:clamp(20px,3.4vw,34px);color:var(--ink-2);margin-top:14px;letter-spacing:.005em}
+  .lede{
+    margin:26px 0 0;
+    max-width:56ch;
+    color:var(--ink-2);
+    font-size:clamp(17px,2vw,19px);
+  }
+  .rule{
+    height:1px;margin:34px 0 0;
+    background:linear-gradient(90deg,var(--gold) 0%, var(--rust) 34%, var(--line) 100%);
+    transform-origin:left center;
+    animation:draw 1.1s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  @media (prefers-reduced-motion:reduce){.rule{animation:none}}
+
+  .facts{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:0;
+    margin:0;padding:0;
+    border-bottom:1px solid var(--line);
+  }
+  .fact{padding:22px 0 30px;border-right:1px solid var(--line-soft)}
+  .fact:last-child{border-right:none}
+  .fact dt{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  }
+  .fact dd{margin:8px 0 0;font-size:19px;color:var(--ink);font-weight:500}
+  .fact dd small{display:block;font-size:13px;color:var(--muted);font-weight:400;margin-top:2px}
+
+  /* ---------- route ---------- */
+  .route{padding:30px 0 34px;border-bottom:1px solid var(--line);background:var(--ground-2)}
+  .route ol{
+    list-style:none;margin:0;padding:0;
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);
+  }
+  .route li::after{content:"→";margin-left:14px;color:var(--gold)}
+  .route li:last-child::after{content:""}
+  .route .lbl{
+    display:block;margin-bottom:14px;
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:64px 0}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:8px}
+  .sec-head h2{
+    font-family:"Prata",Georgia,serif;font-weight:400;
+    font-size:clamp(28px,4.4vw,42px);letter-spacing:-.005em;
+  }
+  .sec-head .n{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
+    white-space:nowrap;
+  }
+  .sec-note{color:var(--muted);max-width:60ch;margin:0 0 40px}
+
+  /* ---------- timeline ---------- */
+  .day{
+    display:grid;
+    grid-template-columns:190px 1fr;
+    gap:0 40px;
+    padding:34px 0;
+    border-top:1px solid var(--line);
+  }
+  .day:last-of-type{border-bottom:1px solid var(--line)}
+  .daymark{position:sticky;top:24px;align-self:start}
+  .daynum{
+    font-family:"Prata",Georgia,serif;
+    font-size:64px;line-height:.9;color:var(--gold);
+    font-variant-numeric:tabular-nums;
+  }
+  .daymon{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+    margin-top:10px;
+  }
+  .daytag{
+    margin-top:14px;font-size:15px;color:var(--ink-2);max-width:22ch;line-height:1.35;
+  }
+
+  .events{display:flex;flex-direction:column;gap:2px}
+  .ev{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:0 24px;
+    padding:14px 16px 14px 0;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .ev:last-child{border-bottom:none}
+  .ev .t{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:13px;color:var(--water);
+    font-variant-numeric:tabular-nums;
+    padding-top:4px;letter-spacing:.02em;
+  }
+  .ev .t.free{color:var(--muted)}
+  .ev .name{font-size:18px;font-weight:500;line-height:1.35}
+  .ev .desc{margin:6px 0 0;color:var(--muted);font-size:15px;max-width:60ch}
+
+  /* key events get real weight, not decoration */
+  .ev.key{
+    background:linear-gradient(90deg, rgba(227,166,63,.09), rgba(227,166,63,0) 72%);
+    border-left:2px solid var(--gold);
+    padding-left:18px;
+    border-bottom:none;
+    margin:8px 0;
+    border-radius:2px;
+  }
+  .ev.key .name{font-family:"Prata",Georgia,serif;font-weight:400;font-size:24px;line-height:1.2}
+  .ev.key .desc{color:var(--ink-2);font-size:16px;margin-top:10px}
+  .ev.key .t{color:var(--gold)}
+  .ev.key .kicker{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);
+    display:block;margin-bottom:8px;
+  }
+
+  /* ---------- practical ---------- */
+  .prac{background:var(--ground-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--line)}
+  .card{background:var(--ground-2);padding:28px 26px 30px}
+  .card h3{
+    font-size:17px;font-weight:600;margin-bottom:12px;
+  }
+  .card h3 .ic{color:var(--gold);font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;display:block;margin-bottom:8px;text-transform:uppercase;font-weight:400}
+  .card ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:15px;line-height:1.65}
+  .card li{margin-bottom:6px}
+  .card li::marker{color:var(--rust)}
+  .card p{margin:0;color:var(--ink-2);font-size:15px}
+
+  /* ---------- flights ---------- */
+  .flights{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:8px}
+  .flight{
+    border:1px solid var(--line);
+    background:var(--surface);
+    padding:22px 24px;
+  }
+  .flight .code{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:13px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;
+  }
+  .flight .leg{
+    display:flex;align-items:baseline;gap:12px;margin-top:14px;
+    font-family:"Prata",Georgia,serif;font-size:26px;
+    font-variant-numeric:tabular-nums;
+  }
+  .flight .leg .arrow{color:var(--rust);font-family:"Golos Text",sans-serif;font-size:18px}
+  .flight .meta{margin-top:10px;color:var(--muted);font-size:14px}
+
+  footer{padding:52px 0 68px;color:var(--muted);font-size:14px}
+  footer .fline{
+    display:flex;flex-wrap:wrap;gap:10px 26px;align-items:baseline;
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  }
+  footer .sig{margin-top:22px;font-family:"Prata",Georgia,serif;font-size:22px;color:var(--ink-2)}
+
+  a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(227,166,63,.35)}
+  a:focus-visible,li:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+  @media (max-width:760px){
+    .day{grid-template-columns:1fr;gap:0}
+    .daymark{position:static;display:flex;align-items:baseline;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+    .daynum{font-size:44px}
+    .daymon{margin-top:0}
+    .daytag{max-width:none;width:100%;margin-top:4px}
+    .ev{grid-template-columns:1fr;gap:4px}
+    .ev .t{padding-top:0}
+    .fact{border-right:none;border-bottom:1px solid var(--line-soft);padding:18px 0}
+    .hero-inner{padding-top:44px}
+    section{padding:48px 0}
+  }
+</style>
+</head>
+<body>
+
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">
+      <span>Русские Фонды</span><span class="sep">/</span>
+      <span class="q">выездная программа</span><span class="sep">/</span>
+      <span class="q">16—20 сентября 2026</span>
+    </div>
+    <h1>Ольхон
+      <span class="sub">Три ночи на Малом Море</span>
+    </h1>
+    <p class="lede">Сентябрь — лучшая неделя острова: вода ещё держит летнее тепло, лиственницы уже золотые, а туристические потоки схлынули. Мы едем на Хобой и на юг острова, лепим буузы, пробуем ольхонские сыры и закрываем поездку гала-ужином в бурятском стиле.</p>
+    <div class="rule"></div>
+    <dl class="facts">
+      <div class="fact"><dt>Даты</dt><dd>16—20 сентября<small>3 ночи, 2 полных дня на острове</small></dd></div>
+      <div class="fact"><dt>Проживание</dt><dd>Baikal&nbsp;View<small>отель и ресторан, посёлок Хужир</small></dd></div>
+      <div class="fact"><dt>Экскурсии</dt><dd>2 маршрута на УАЗ<small>север (Хобой) и юг острова</small></dd></div>
+      <div class="fact"><dt>Перелёт</dt><dd>SU 1442 / SU 1447<small>Москва — Иркутск — Москва</small></dd></div>
+    </dl>
+  </div>
+</div>
+
+<div class="route">
+  <div class="wrap">
+    <span class="lbl">Как мы туда попадаем</span>
+    <ol>
+      <li>Москва</li>
+      <li>Иркутск</li>
+      <li>Автобус, 250 км</li>
+      <li>Паром через Ольхонские Ворота</li>
+      <li>Хужир</li>
+      <li>Baikal View</li>
+    </ol>
+  </div>
+</div>
+
+<section class="wrap" id="program">
+  <div class="sec-head">
+    <span class="n">Программа</span>
+    <h2>Тайминг по дням</h2>
+  </div>
+  <p class="sec-note">Время местное, иркутское (МСК+5). Переезды по острову — на УАЗ по грунтовым дорогам, поэтому окна экскурсий широкие: возвращаемся к 17:00, дальше свободное время до ужина.</p>
+
+  <div class="day">
+    <div class="daymark">
+      <div class="daynum">16</div>
+      <div class="daymon">сентября · среда</div>
+      <div class="daytag">Ночной перелёт</div>
+    </div>
+    <div class="events">
+      <div class="ev">
+        <div class="t">21:20</div>
+        <div>
+          <div class="name">Вылет в Иркутск, рейс SU 1442</div>
+          <p class="desc">Ночной перелёт, в воздухе около шести часов. Разница с Москвой — плюс пять часов, поэтому лучше спать в самолёте: первый день на острове начнётся сразу после посадки.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="daymark">
+      <div class="daynum">17</div>
+      <div class="daymon">сентября · четверг</div>
+      <div class="daytag">Дорога на остров и первый вечер</div>
+    </div>
+    <div class="events">
+      <div class="ev">
+        <div class="t">08:05</div>
+        <div>
+          <div class="name">Прилёт в Иркутск</div>
+          <p class="desc">Встреча с гидом в аэропорту, группа сразу выезжает в сторону переправы.</p>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="t free">в пути</div>
+        <div>
+          <div class="name">Переезд на Ольхон, автобус</div>
+          <p class="desc">Около 250 км по Качугскому тракту через степные перевалы. По дороге — гастро-боксы и остановки на разминку.</p>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="t free">днём</div>
+        <div>
+          <div class="name">Паром через Ольхонские Ворота</div>
+          <p class="desc">Переправа из Сахюрты (МРС) на остров занимает 15—20 минут; на той стороне группу встречает трансфер до отеля.</p>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="t">15:00</div>
+        <div>
+          <div class="name">Приезд в Baikal View, размещение</div>
+          <p class="desc">Ключи, багаж в номера, время выдохнуть после перелёта.</p>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="t free">свободно</div>
+        <div>
+          <div class="name">Обед по меню ресторана или в Хужире</div>
+          <p class="desc">По желанию и в свободном порядке — кухня отеля работает весь день.</p>
+        </div>
+      </div>
+      <div class="ev key">
+        <div class="t">18:00</div>
+        <div>
+          <span class="kicker">Главное событие вечера</span>
+          <div class="name">Мастер-класс по лепке бууз и дегустация ольхонских сыров</div>
+          <p class="desc">Буузы — бурятское блюдо, где всё решают руки: тесто раскатывают тонко, рубленое мясо кладут щедро, а сверху защипывают 33 складки, оставляя отверстие для пара. Лепим сами, готовим на пару и тут же пробуем — вместе с сырами местного производства, которые делают здесь же, на острове.</p>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="t">19:00</div>
+        <div>
+          <div class="name">Ужин — знакомство с меню</div>
+          <p class="desc">Первый вечер в ресторане отеля: подача сетом, чтобы за один ужин попробовать основное из нашей кухни.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="daymark">
+      <div class="daynum">18</div>
+      <div class="daymon">сентября · пятница</div>
+      <div class="daytag">Север острова, мыс Хобой</div>
+    </div>
+    <div class="events">
+      <div class="ev">
+        <div class="t">08:00—09:30</div>
+        <div><div class="name">Завтрак в отеле</div></div>
+      </div>
+      <div class="ev key">
+        <div class="t">10:00—17:00</div>
+        <div>
+          <span class="kicker">Экскурсия дня</span>
+          <div class="name">Хобой на УАЗ: северная оконечность Ольхона</div>
+          <p class="desc">Классический маршрут острова: урочище Песчаное, мыс Три Брата, скалы Саган-Хушун и финальная точка — Хобой, «клык» по-бурятски, откуда Байкал видно на север и на юг одновременно. Обед — уха на берегу, приготовленная на костре. Дорога грунтовая, весь день в «буханке»: удобная обувь и ветрозащита обязательны.</p>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="t free">после 17:00</div>
+        <div><div class="name">Свободное время</div><p class="desc">Баня, прогулка до Шаманки, отдых в отеле.</p></div>
+      </div>
+      <div class="ev">
+        <div class="t">19:00—20:30</div>
+        <div><div class="name">Ужин, шведская линия</div><p class="desc">Свободная рассадка, приходим когда удобно.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="daymark">
+      <div class="daynum">19</div>
+      <div class="daymon">сентября · суббота</div>
+      <div class="daytag">Юг острова и гала-ужин</div>
+    </div>
+    <div class="events">
+      <div class="ev">
+        <div class="t">08:00—09:30</div>
+        <div><div class="name">Завтрак в отеле</div></div>
+      </div>
+      <div class="ev key">
+        <div class="t">10:00—17:00</div>
+        <div>
+          <span class="kicker">Экскурсия дня</span>
+          <div class="name">Юг Ольхона на УАЗ</div>
+          <p class="desc">Другая половина острова и другой пейзаж: степи вместо тайги, широкие панорамы Малого Моря, Курыканская стена и виды на пролив со стороны южных мысов. Маршрут спокойнее северного, времени на остановки и фотографии больше.</p>
+        </div>
+      </div>
+      <div class="ev key">
+        <div class="t">19:00—23:00</div>
+        <div>
+          <span class="kicker">Финал поездки</span>
+          <div class="name">Гала-ужин в бурятском стиле</div>
+          <p class="desc">Главный вечер программы: сет из локальных продуктов — байкальская рыба, мясо, молочные закуски, — горловое пение и живая программа. Четыре часа в другом ритме, без спешки.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="daymark">
+      <div class="daynum">20</div>
+      <div class="daymon">сентября · воскресенье</div>
+      <div class="daytag">Обратная дорога</div>
+    </div>
+    <div class="events">
+      <div class="ev">
+        <div class="t">08:00—09:30</div>
+        <div><div class="name">Завтрак в отеле</div><p class="desc">Выезд с вещами сразу после завтрака.</p></div>
+      </div>
+      <div class="ev">
+        <div class="t free">утром</div>
+        <div><div class="name">Трансфер до парома</div></div>
+      </div>
+      <div class="ev">
+        <div class="t">10:00</div>
+        <div><div class="name">Автобус в Иркутск</div><p class="desc">Тот же путь в обратную сторону, с запасом по времени до вылета.</p></div>
+      </div>
+      <div class="ev">
+        <div class="t">16:15</div>
+        <div><div class="name">Вылет в Москву, рейс SU 1447</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="prac">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="n">Практика</span>
+      <h2>Что нужно знать до вылета</h2>
+    </div>
+    <p class="sec-note">Ольхон — остров с грунтовыми дорогами и резкой погодой. Три вещи, которые чаще всего забывают: тёплый слой, наличные и запас времени на паром.</p>
+    <div class="cards">
+      <div class="card">
+        <h3><span class="ic">Погода</span>Сентябрь на острове</h3>
+        <ul>
+          <li>Днём +10…+15 °C, ночью около нуля</li>
+          <li>Постоянный ветер с воды, на мысах особенно</li>
+          <li>Солнце обманчиво яркое — очки и крем</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><span class="ic">Одежда</span>Одевайтесь слоями</h3>
+        <p style="margin:0 0 12px">На острове за день можно застать и солнце, и ветер с воды, и холодные сумерки. Работает только многослойность — слои снимаются и надеваются по погоде.</p>
+        <ul>
+          <li>Непродуваемая куртка — обязательный верхний слой</li>
+          <li>Средний слой: флис или лёгкий пуховик</li>
+          <li>Нижний слой: термобельё или тонкая шерсть</li>
+          <li>Шапка и перчатки — на мысах ветер сильный</li>
+          <li>Обувь с протектором для УАЗ-маршрутов</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><span class="ic">Связь</span>Интернет и деньги</h3>
+        <ul>
+          <li>В Хужире связь есть, на маршрутах пропадает</li>
+          <li>Wi-Fi в отеле, скорость островная</li>
+          <li>Наличные — не везде принимают карты</li>
+          <li>Повербанк: на маршрутах розеток нет</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><span class="ic">Формат</span>Организационное</h3>
+        <ul>
+          <li>Меню на все ужины уже согласовано — выбирать ничего не нужно</li>
+          <li>Экскурсии на УАЗ, группами по 6—8 человек</li>
+          <li>Багаж на 20 сентября собираем до завтрака</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-head">
+    <span class="n">Перелёты</span>
+    <h2>Туда и обратно</h2>
+  </div>
+  <div class="flights">
+    <div class="flight">
+      <div class="code">SU 1442 · 16 сентября</div>
+      <div class="leg">21:20 <span class="arrow">→</span> 08:05</div>
+      <div class="meta">Москва — Иркутск, прилёт утром 17 сентября. Разница во времени +5 часов к Москве.</div>
+    </div>
+    <div class="flight">
+      <div class="code">SU 1447 · 20 сентября</div>
+      <div class="leg">16:15 <span class="arrow">→</span> Москва</div>
+      <div class="meta">Вылет из Иркутска, регистрация закрывается за 40 минут до вылета.</div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="fline">
+    <span>Русские Фонды · Ольхон 2026</span>
+    <span>Baikal View, Хужир</span>
+    <span>16—20 сентября</span>
+  </div>
+  <div class="sig">Увидимся на пароме.</div>
+</footer>
+
+</body>
+</html>
